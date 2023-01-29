@@ -12,7 +12,7 @@ const r = window.proto.webcast.im;
 const msg = new Msg({ modules: r });
 
 //
-['LiveEcomGeneralMessage', 'WebcastMemberMessage'].forEach((item) => {
+['LiveEcomGeneralMessage', 'MemberMessage'].forEach((item) => {
   msg.on(item, function (e) {
     var t,
       r,
@@ -35,7 +35,7 @@ const msg = new Msg({ modules: r });
 
 function App() {
   var ws = new WebSocket(
-    'wss://webcast3-ws-web-lq.douyin.com/webcast/im/push/v2/?app_name=douyin_web&version_code=180800&webcast_sdk_version=1.3.0&update_version_code=1.3.0&compress=gzip&internal_ext=internal_src:dim|wss_push_room_id:7194011592529382199|wss_push_did:7193980101242570244|dim_log_id:202301291837436219A40C1600F71882BB|fetch_time:1674988663221|seq:1|wss_info:0-1674988663221-0-0|wrds_kvs:WebcastRoomStatsMessage-1674988662885736354_WebcastProfitInteractionScoreMessage-1674988503024989207_WebcastRoomRankMessage-1674988308941882344&cursor=d-1_u-1_h-1_t-1674988663221_r-1&host=https://live.douyin.com&aid=6383&live_id=1&did_rule=3&debug=false&endpoint=live_pc&support_wrds=1&im_path=/webcast/im/fetch/&user_unique_id=7193980101242570244&device_platform=web&cookie_enabled=true&screen_width=1920&screen_height=1200&browser_language=zh-CN&browser_platform=MacIntel&browser_name=Mozilla&browser_version=5.0%20(Macintosh;%20Intel%20Mac%20OS%20X%2010_15_7)%20AppleWebKit/537.36%20(KHTML,%20like%20Gecko)%20Chrome/109.0.0.0%20Safari/537.36&browser_online=true&tz_name=Asia/Shanghai&identity=audience&room_id=7194011592529382199&heartbeatDuration=0&signature=R/8d2lzfZP4xqnQQ'
+    'wss://webcast3-ws-web-lf.douyin.com/webcast/im/push/v2/?app_name=douyin_web&version_code=180800&webcast_sdk_version=1.3.0&update_version_code=1.3.0&compress=gzip&internal_ext=internal_src:dim|wss_push_room_id:7194042927616740156|wss_push_did:7194085691654211109|dim_log_id:2023012922530502595FF2AF2BC2432CBA|fetch_time:1675003985712|seq:1|wss_info:0-1675003985712-0-0|wrds_kvs:WebcastRoomStatsMessage-1675003979511141542_WebcastRoomRankMessage-1675003673572438275&cursor=r-1_d-1_u-1_h-1_t-1675003985712&host=https://live.douyin.com&aid=6383&live_id=1&did_rule=3&debug=false&endpoint=live_pc&support_wrds=1&im_path=/webcast/im/fetch/&user_unique_id=7194085691654211109&device_platform=web&cookie_enabled=true&screen_width=1600&screen_height=1000&browser_language=zh-CN&browser_platform=MacIntel&browser_name=Mozilla&browser_version=5.0%20(Macintosh;%20Intel%20Mac%20OS%20X%2010_15_7)%20AppleWebKit/537.36%20(KHTML,%20like%20Gecko)%20Chrome/109.0.0.0%20Safari/537.36&browser_online=true&tz_name=Asia/Shanghai&identity=audience&room_id=7194042927616740156&heartbeatDuration=0&signature=RsRYL0+P68+M91g0'
   );
   ws.binaryType = 'arraybuffer';
 
