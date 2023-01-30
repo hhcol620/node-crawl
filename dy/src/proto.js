@@ -1899,21 +1899,347 @@ export default (t = {}) => {
       return r.Message.setProto3StringField(this, 14, e);
     });
 
-  var a = o;
+  proto.webcast.data || (proto.webcast.data = {});
+  proto.webcast.data.User || (proto.webcast.data.User = {});
+  proto.webcast.data.Image || (proto.webcast.data.Image = {});
+  proto.webcast.data.Text || (proto.webcast.data.Text = {});
+  proto.webcast.data.User.toObject = function (e, t) {
+    var a,
+      o = {
+        id: r.Message.getFieldWithDefault(t, 1, '0'),
+        shortId: r.Message.getFieldWithDefault(t, 2, '0'),
+        nickname: r.Message.getFieldWithDefault(t, 3, ''),
+        gender: r.Message.getFieldWithDefault(t, 4, 0),
+        signature: r.Message.getFieldWithDefault(t, 5, ''),
+        level: r.Message.getFieldWithDefault(t, 6, 0),
+        birthday: r.Message.getFieldWithDefault(t, 7, '0'),
+        telephone: r.Message.getFieldWithDefault(t, 8, ''),
+        avatarThumb: (a = t.getAvatarThumb()) && i.Image.toObject(e, a),
+        avatarMedium: (a = t.getAvatarMedium()) && i.Image.toObject(e, a),
+        avatarLarge: (a = t.getAvatarLarge()) && i.Image.toObject(e, a),
+        verified: r.Message.getBooleanFieldWithDefault(t, 12, !1),
+        experience: r.Message.getFieldWithDefault(t, 13, 0),
+        city: r.Message.getFieldWithDefault(t, 14, ''),
+        status: r.Message.getFieldWithDefault(t, 15, 0),
+        createTime: r.Message.getFieldWithDefault(t, 16, '0'),
+        modifyTime: r.Message.getFieldWithDefault(t, 17, '0'),
+        secret: r.Message.getFieldWithDefault(t, 18, 0),
+        shareQrcodeUri: r.Message.getFieldWithDefault(t, 19, ''),
+        incomeSharePercent: r.Message.getFieldWithDefault(t, 20, 0),
+        badgeImageListList: r.Message.toObjectList(
+          t.getBadgeImageListList(),
+          i.Image.toObject,
+          e
+        ),
+        followInfo:
+          (a = t.getFollowInfo()) &&
+          proto.webcast.data.User.FollowInfo.toObject(e, a),
+        payGrade:
+          (a = t.getPayGrade()) &&
+          proto.webcast.data.User.PayGrade.toObject(e, a),
+        fansClub:
+          (a = t.getFansClub()) &&
+          proto.webcast.data.User.FansClub.toObject(e, a),
+        border:
+          (a = t.getBorder()) && proto.webcast.data.User.Border.toObject(e, a),
+        specialId: r.Message.getFieldWithDefault(t, 26, ''),
+        avatarBorder: (a = t.getAvatarBorder()) && i.Image.toObject(e, a),
+        medal: (a = t.getMedal()) && i.Image.toObject(e, a),
+        realTimeIconsList: r.Message.toObjectList(
+          t.getRealTimeIconsList(),
+          i.Image.toObject,
+          e
+        ),
+        newRealTimeIconsList: r.Message.toObjectList(
+          t.getNewRealTimeIconsList(),
+          i.Image.toObject,
+          e
+        ),
+        topVipNo: r.Message.getFieldWithDefault(t, 31, '0'),
+        userAttr:
+          (a = t.getUserAttr()) &&
+          proto.webcast.data.User.UserAttr.toObject(e, a),
+        ownRoom:
+          (a = t.getOwnRoom()) &&
+          proto.webcast.data.User.OwnRoom.toObject(e, a),
+        payScore: r.Message.getFieldWithDefault(t, 34, '0'),
+        ticketCount: r.Message.getFieldWithDefault(t, 35, '0'),
+        anchorInfo:
+          (a = t.getAnchorInfo()) &&
+          proto.webcast.data.User.AnchorInfo.toObject(e, a),
+        linkMicStats: r.Message.getFieldWithDefault(t, 37, 0),
+        displayId: r.Message.getFieldWithDefault(t, 38, ''),
+        withCommercePermission: r.Message.getBooleanFieldWithDefault(t, 39, !1),
+        withFusionShopEntry: r.Message.getBooleanFieldWithDefault(t, 40, !1),
+        totalRechargeDiamondCount: r.Message.getFieldWithDefault(t, 41, '0'),
+        webcastAnchorLevel:
+          (a = t.getWebcastAnchorLevel()) &&
+          proto.webcast.data.User.AnchorLevel.toObject(e, a),
+        verifiedContent: r.Message.getFieldWithDefault(t, 43, ''),
+        authorStats:
+          (a = t.getAuthorStats()) &&
+          proto.webcast.data.User.AuthorStats.toObject(e, a),
+        topFansList: r.Message.toObjectList(
+          t.getTopFansList(),
+          proto.webcast.data.User.toObject,
+          e
+        ),
+        secUid: r.Message.getFieldWithDefault(t, 46, ''),
+        userRole: r.Message.getFieldWithDefault(t, 47, 0),
+        xiguaInfo:
+          (a = t.getXiguaInfo()) &&
+          proto.webcast.data.User.XiguaParams.toObject(e, a),
+        activityReward:
+          (a = t.getActivityReward()) &&
+          proto.webcast.data.User.ActivityInfo.toObject(e, a),
+        nobleInfo:
+          (a = t.getNobleInfo()) &&
+          proto.webcast.data.User.NobleLevelInfo.toObject(e, a),
+        brotherhoodInfo:
+          (a = t.getBrotherhoodInfo()) &&
+          proto.webcast.data.User.BrotherhoodInfo.toObject(e, a),
+        personalCard: (a = t.getPersonalCard()) && i.Image.toObject(e, a),
+        authenticationInfo:
+          (a = t.getAuthenticationInfo()) &&
+          proto.webcast.data.User.AuthenticationInfo.toObject(e, a),
+        authorizationInfo: r.Message.getFieldWithDefault(t, 54, 0),
+        adversaryAuthorizationInfo: r.Message.getFieldWithDefault(t, 55, 0),
+        poiInfo:
+          (a = t.getPoiInfo()) &&
+          proto.webcast.data.User.PoiInfo.toObject(e, a),
+        mediaBadgeImageListList: r.Message.toObjectList(
+          t.getMediaBadgeImageListList(),
+          i.Image.toObject,
+          e
+        ),
+        adversaryUserStatus: r.Message.getFieldWithDefault(t, 58, 0),
+        userVipInfo: (a = t.getUserVipInfo()) && c.UserVIPInfo.toObject(e, a),
+        commerceWebcastConfigIdsList:
+          null == (a = r.Message.getRepeatedField(t, 60)) ? void 0 : a,
+        badgeImageListV2List: r.Message.toObjectList(
+          t.getBadgeImageListV2List(),
+          i.Image.toObject,
+          e
+        ),
+        industryCertification:
+          (a = t.getIndustryCertification()) &&
+          proto.webcast.data.IndustryCertification.toObject(e, a),
+        locationCity: r.Message.getFieldWithDefault(t, 63, ''),
+        fansGroupInfo:
+          (a = t.getFansGroupInfo()) &&
+          proto.webcast.data.User.FansGroupInfo.toObject(e, a),
+        remarkName: r.Message.getFieldWithDefault(t, 65, ''),
+        mysteryMan: r.Message.getFieldWithDefault(t, 66, 0),
+        webRid: r.Message.getFieldWithDefault(t, 67, ''),
+        desensitizedNickname: r.Message.getFieldWithDefault(t, 68, ''),
+        jAccreditInfo:
+          (a = t.getJAccreditInfo()) &&
+          proto.webcast.data.User.JAccreditInfo.toObject(e, a),
+        subscribe:
+          (a = t.getSubscribe()) &&
+          proto.webcast.data.User.Subscribe.toObject(e, a),
+        isAnonymous: r.Message.getBooleanFieldWithDefault(t, 71, !1),
+        consumeDiamondLevel: r.Message.getFieldWithDefault(t, 72, 0),
+        webcastUid: r.Message.getFieldWithDefault(t, 73, ''),
+        profileStyleParams:
+          (a = t.getProfileStyleParams()) &&
+          proto.webcast.data.User.ProfileStyleParams.toObject(e, a),
+        userDressInfo:
+          (a = t.getUserDressInfo()) &&
+          proto.webcast.data.User.UserDressInfo.toObject(e, a),
+        allowBeLocated: r.Message.getBooleanFieldWithDefault(t, 1001, !1),
+        allowFindByContacts: r.Message.getBooleanFieldWithDefault(t, 1002, !1),
+        allowOthersDownloadVideo: r.Message.getBooleanFieldWithDefault(
+          t,
+          1003,
+          !1
+        ),
+        allowOthersDownloadWhenSharingVideo:
+          r.Message.getBooleanFieldWithDefault(t, 1004, !1),
+        allowShareShowProfile: r.Message.getBooleanFieldWithDefault(
+          t,
+          1005,
+          !1
+        ),
+        allowShowInGossip: r.Message.getBooleanFieldWithDefault(t, 1006, !1),
+        allowShowMyAction: r.Message.getBooleanFieldWithDefault(t, 1007, !1),
+        allowStrangeComment: r.Message.getBooleanFieldWithDefault(t, 1008, !1),
+        allowUnfollowerComment: r.Message.getBooleanFieldWithDefault(
+          t,
+          1009,
+          !1
+        ),
+        allowUseLinkmic: r.Message.getBooleanFieldWithDefault(t, 1010, !1),
+        anchorLevel:
+          (a = t.getAnchorLevel()) &&
+          proto.webcast.data.User.AnchorLevel.toObject(e, a),
+        avatarJpg: (a = t.getAvatarJpg()) && i.Image.toObject(e, a),
+        bgImgUrl: r.Message.getFieldWithDefault(t, 1013, ''),
+        birthdayDescription: r.Message.getFieldWithDefault(t, 1014, ''),
+        birthdayValid: r.Message.getBooleanFieldWithDefault(t, 1015, !1),
+        blockStatus: r.Message.getFieldWithDefault(t, 1016, 0),
+        commentRestrict: r.Message.getFieldWithDefault(t, 1017, 0),
+        constellation: r.Message.getFieldWithDefault(t, 1018, ''),
+        disableIchat: r.Message.getFieldWithDefault(t, 1019, 0),
+        enableIchatImg: r.Message.getFieldWithDefault(t, 1020, '0'),
+        exp: r.Message.getFieldWithDefault(t, 1021, 0),
+        fanTicketCount: r.Message.getFieldWithDefault(t, 1022, '0'),
+        foldStrangerChat: r.Message.getBooleanFieldWithDefault(t, 1023, !1),
+        followStatus: r.Message.getFieldWithDefault(t, 1024, '0'),
+        hotsoonVerified: r.Message.getBooleanFieldWithDefault(t, 1025, !1),
+        hotsoonVerifiedReason: r.Message.getFieldWithDefault(t, 1026, ''),
+        ichatRestrictType: r.Message.getFieldWithDefault(t, 1027, 0),
+        idStr: r.Message.getFieldWithDefault(t, 1028, ''),
+        isFollower: r.Message.getBooleanFieldWithDefault(t, 1029, !1),
+        isFollowing: r.Message.getBooleanFieldWithDefault(t, 1030, !1),
+        needProfileGuide: r.Message.getBooleanFieldWithDefault(t, 1031, !1),
+        payScores: r.Message.getFieldWithDefault(t, 1032, '0'),
+        pushCommentStatus: r.Message.getBooleanFieldWithDefault(t, 1033, !1),
+        pushDigg: r.Message.getBooleanFieldWithDefault(t, 1034, !1),
+        pushFollow: r.Message.getBooleanFieldWithDefault(t, 1035, !1),
+        pushFriendAction: r.Message.getBooleanFieldWithDefault(t, 1036, !1),
+        pushIchat: r.Message.getBooleanFieldWithDefault(t, 1037, !1),
+        pushStatus: r.Message.getBooleanFieldWithDefault(t, 1038, !1),
+        pushVideoPost: r.Message.getBooleanFieldWithDefault(t, 1039, !1),
+        pushVideoRecommend: r.Message.getBooleanFieldWithDefault(t, 1040, !1),
+        stats:
+          (a = t.getStats()) &&
+          proto.webcast.data.User.UserStats.toObject(e, a),
+        verifiedMobile: r.Message.getBooleanFieldWithDefault(t, 1042, !1),
+        verifiedReason: r.Message.getFieldWithDefault(t, 1043, ''),
+        withCarManagementPermission: r.Message.getBooleanFieldWithDefault(
+          t,
+          1044,
+          !1
+        ),
+        ageRange: r.Message.getFieldWithDefault(t, 1045, 0),
+        watchDurationMonth: r.Message.getFieldWithDefault(t, 1046, '0')
+      };
+    return e && (o.$jspbMessageInstance = t), o;
+  };
+
+  proto.webcast.data.Image.toObject = function (e, t) {
+    var a,
+      o = {
+        urlListList:
+          null == (a = r.Message.getRepeatedField(t, 1)) ? void 0 : a,
+        uri: r.Message.getFieldWithDefault(t, 2, ''),
+        height: r.Message.getFieldWithDefault(t, 3, '0'),
+        width: r.Message.getFieldWithDefault(t, 4, '0'),
+        avgColor: r.Message.getFieldWithDefault(t, 5, ''),
+        imageType: r.Message.getFieldWithDefault(t, 6, 0),
+        openWebUrl: r.Message.getFieldWithDefault(t, 7, ''),
+        content:
+          (a = t.getContent()) &&
+          proto.webcast.data.Image.Content.toObject(e, a),
+        isAnimated: r.Message.getBooleanFieldWithDefault(t, 9, !1),
+        flexSettingListList: r.Message.toObjectList(
+          t.getFlexSettingListList(),
+          proto.webcast.data.Image.NinePatchSetting.toObject,
+          e
+        ),
+        textSettingListList: r.Message.toObjectList(
+          t.getTextSettingListList(),
+          proto.webcast.data.Image.NinePatchSetting.toObject,
+          e
+        )
+      };
+    return e && (o.$jspbMessageInstance = t), o;
+  };
+
+  proto.webcast.data.Text.toObject = function (t, e) {
+    var o,
+      r = {
+        key: a.Message.getFieldWithDefault(e, 1, ''),
+        defaultPattern: a.Message.getFieldWithDefault(e, 2, ''),
+        defaultFormat:
+          (o = e.getDefaultFormat()) &&
+          proto.webcast.data.TextFormat.toObject(t, o),
+        piecesList: a.Message.toObjectList(
+          e.getPiecesList(),
+          proto.webcast.data.TextPiece.toObject,
+          t
+        )
+      };
+    return t && (r.$jspbMessageInstance = e), r;
+  };
+
+  proto.webcast.im || (proto.webcast.im = {});
+  proto.webcast.im.Common ||
+    (proto.webcast.im.Common = proto.webcast.im.Common =
+      function (t) {
+        (function (e, o, t, r, n, i) {
+          if (
+            ((e.wrappers_ = null),
+            o || (o = t ? [t] : []),
+            (e.messageId_ = t ? String(t) : void 0),
+            (e.arrayIndexOffset_ = 0 === t ? -1 : 0),
+            (e.array = o),
+            jsbp.Message.initPivotAndExtensionObject_(e, r),
+            (e.convertedPrimitiveFields_ = {}),
+            jsbp.Message.SERIALIZE_EMPTY_TRAILING_FIELDS ||
+              (e.repeatedFields = n),
+            n)
+          )
+            for (o = 0; o < n.length; o++)
+              (t = n[o]) < e.pivot_
+                ? ((t = jsbp.Message.getIndex_(e, t)),
+                  (e.array[t] =
+                    e.array[t] || jsbp.Message.EMPTY_LIST_SENTINEL_))
+                : (jsbp.Message.maybeInitEmptyExtensionObject_(e),
+                  (e.extensionObject_[t] =
+                    e.extensionObject_[t] ||
+                    jsbp.Message.EMPTY_LIST_SENTINEL_));
+          if (i && i.length)
+            for (o = 0; o < i.length; o++)
+              jsbp.Message.computeOneofCase(e, i[o]);
+        })(this, t, 0, -1, null, null);
+      });
+
+  proto.webcast.im.Common.toObject = function (t, e) {
+    var o,
+      r = {
+        method: a.Message.getFieldWithDefault(e, 1, ''),
+        msgId: a.Message.getFieldWithDefault(e, 2, '0'),
+        roomId: a.Message.getFieldWithDefault(e, 3, '0'),
+        createTime: a.Message.getFieldWithDefault(e, 4, '0'),
+        monitor: a.Message.getFieldWithDefault(e, 5, 0),
+        isShowMsg: a.Message.getBooleanFieldWithDefault(e, 6, !1),
+        describe: a.Message.getFieldWithDefault(e, 7, ''),
+        displayText: (o = e.getDisplayText()) && n.Text.toObject(t, o),
+        foldType: a.Message.getFieldWithDefault(e, 9, '0'),
+        anchorFoldType: a.Message.getFieldWithDefault(e, 10, '0'),
+        priorityScore: a.Message.getFieldWithDefault(e, 11, '0'),
+        logId: a.Message.getFieldWithDefault(e, 12, ''),
+        msgProcessFilterK: a.Message.getFieldWithDefault(e, 13, ''),
+        msgProcessFilterV: a.Message.getFieldWithDefault(e, 14, ''),
+        user: (o = e.getUser()) && c.User.toObject(t, o),
+        room: (o = e.getRoom()) && p.Room.toObject(t, o),
+        anchorFoldTypeV2: a.Message.getFieldWithDefault(e, 17, '0'),
+        processAtSeiTimeMs: a.Message.getFieldWithDefault(e, 18, '0'),
+        randomDispatchMs: a.Message.getFieldWithDefault(e, 19, '0'),
+        isDispatch: a.Message.getBooleanFieldWithDefault(e, 20, !1),
+        channelId: a.Message.getFieldWithDefault(e, 21, '0'),
+        diffSei2absSecond: a.Message.getFieldWithDefault(e, 22, '0'),
+        anchorFoldDuration: a.Message.getFieldWithDefault(e, 23, '0'),
+        appId: a.Message.getFieldWithDefault(e, 24, '0')
+      };
+    return t && (r.$jspbMessageInstance = e), r;
+  };
+
+  var a = proto.webcast.data;
   s.object.extend(proto, a);
-  var n = {};
+  var n = proto.webcast.data;
   s.object.extend(proto, n);
-  var g = {};
+  var g = proto.webcast.data;
   s.object.extend(proto, g);
-  var p = {};
+  var p = proto.webcast.im;
   s.object.extend(proto, p),
     s.exportSymbol('proto.webcast.im.MemberMessage', null, i),
-    s.exportSymbol('proto.webcast.im.MemberMessage.EffectConfig', null, i),
-    s.exportSymbol('proto.webcast.im.MemberMessage', null, i),
-    s.exportSymbol('proto.webcast.im.MemberMessage.EffectConfig', null, i),
-    (proto.webcast.im.MemberMessage = function (e) {
-      r.Message.initialize(this, e, 0, -1, null, null);
-    }),
+    s.exportSymbol('proto.webcast.im.MemberMessage.EffectConfig', null, i);
+  (proto.webcast.im.MemberMessage = function (e) {
+    r.Message.initialize(this, e, 0, -1, null, null);
+  }),
     s.inherits(proto.webcast.im.MemberMessage, r.Message),
     s.DEBUG &&
       !COMPILED &&
@@ -1990,8 +2316,8 @@ export default (t = {}) => {
         switch (t.getFieldNumber()) {
           case 1:
             var o = new p.Common();
-            t.readMessage(o, p.Common.deserializeBinaryFromReader),
-              e.setCommon(o);
+            t.readMessage(o, p.Common.deserializeBinaryFromReader);
+            e.setCommon(o);
             break;
           case 2:
             o = new a.User();
@@ -2108,13 +2434,119 @@ export default (t = {}) => {
       }
       return e;
     }),
-    (proto.webcast.im.MemberMessage.prototype.serializeBinary = function () {
-      var e = new r.BinaryWriter();
-      return (
-        proto.webcast.im.MemberMessage.serializeBinaryToWriter(this, e),
-        e.getResultBuffer()
-      );
-    }),
+    (proto.webcast.im.Common.deserializeBinaryFromReader = function (t, e) {
+      for (; e.nextField() && !e.isEndGroup(); ) {
+        switch (e.getFieldNumber()) {
+          case 1:
+            var o = e.readString();
+            t.setMethod(o);
+            break;
+          case 2:
+            o = e.readInt64String();
+            t.setMsgId(o);
+            break;
+          case 3:
+            o = e.readInt64String();
+            t.setRoomId(o);
+            break;
+          case 4:
+            o = e.readInt64String();
+            t.setCreateTime(o);
+            break;
+          case 5:
+            o = e.readInt32();
+            t.setMonitor(o);
+            break;
+          case 6:
+            o = e.readBool();
+            t.setIsShowMsg(o);
+            break;
+          case 7:
+            o = e.readString();
+            t.setDescribe(o);
+            break;
+          case 8:
+            o = new n.Text();
+            e.readMessage(o, n.Text.deserializeBinaryFromReader),
+              t.setDisplayText(o);
+            break;
+          case 9:
+            o = e.readInt64String();
+            t.setFoldType(o);
+            break;
+          case 10:
+            o = e.readInt64String();
+            t.setAnchorFoldType(o);
+            break;
+          case 11:
+            o = e.readInt64String();
+            t.setPriorityScore(o);
+            break;
+          case 12:
+            o = e.readString();
+            t.setLogId(o);
+            break;
+          case 13:
+            o = e.readString();
+            t.setMsgProcessFilterK(o);
+            break;
+          case 14:
+            o = e.readString();
+            t.setMsgProcessFilterV(o);
+            break;
+          case 15:
+            o = new c.User();
+            e.readMessage(o, c.User.deserializeBinaryFromReader), t.setUser(o);
+            break;
+          case 16:
+            o = new p.Room();
+            e.readMessage(o, p.Room.deserializeBinaryFromReader), t.setRoom(o);
+            break;
+          case 17:
+            o = e.readInt64String();
+            t.setAnchorFoldTypeV2(o);
+            break;
+          case 18:
+            o = e.readInt64String();
+            t.setProcessAtSeiTimeMs(o);
+            break;
+          case 19:
+            o = e.readInt64String();
+            t.setRandomDispatchMs(o);
+            break;
+          case 20:
+            o = e.readBool();
+            t.setIsDispatch(o);
+            break;
+          case 21:
+            o = e.readInt64String();
+            t.setChannelId(o);
+            break;
+          case 22:
+            o = e.readInt64String();
+            t.setDiffSei2absSecond(o);
+            break;
+          case 23:
+            o = e.readInt64String();
+            t.setAnchorFoldDuration(o);
+            break;
+          case 24:
+            o = e.readInt64String();
+            t.setAppId(o);
+            break;
+          default:
+            e.skipField();
+        }
+      }
+      return t;
+    });
+  (proto.webcast.im.MemberMessage.prototype.serializeBinary = function () {
+    var e = new r.BinaryWriter();
+    return (
+      proto.webcast.im.MemberMessage.serializeBinaryToWriter(this, e),
+      e.getResultBuffer()
+    );
+  }),
     (proto.webcast.im.MemberMessage.serializeBinaryToWriter = function (e, t) {
       var o = void 0;
       null != (o = e.getCommon()) &&
@@ -2938,5 +3370,983 @@ export default (t = {}) => {
         return this.getBuriedPointMap().clear(), this;
       });
 
+  r.object.extend(proto, i),
+    r.exportSymbol('proto.webcast.im.RoomMessage', null, a),
+    r.exportSymbol('proto.webcast.im.RoomMsgTypeEnum', null, a),
+    (proto.webcast.im.RoomMessage = function (e) {
+      s.Message.initialize(this, e, 0, -1, null, null);
+    }),
+    r.inherits(proto.webcast.im.RoomMessage, s.Message),
+    r.DEBUG &&
+      !COMPILED &&
+      (proto.webcast.im.RoomMessage.displayName =
+        'proto.webcast.im.RoomMessage'),
+    s.Message.GENERATE_TO_OBJECT &&
+      ((proto.webcast.im.RoomMessage.prototype.toObject = function (e) {
+        return proto.webcast.im.RoomMessage.toObject(e, this);
+      }),
+      (proto.webcast.im.RoomMessage.toObject = function (e, t) {
+        var o,
+          r = {
+            common: (o = t.getCommon()) && i.Common.toObject(e, o),
+            content: s.Message.getFieldWithDefault(t, 2, ''),
+            supprotLandscape: s.Message.getBooleanFieldWithDefault(t, 3, !1),
+            roommessagetype: s.Message.getFieldWithDefault(t, 4, 0),
+            systemTopMsg: s.Message.getBooleanFieldWithDefault(t, 5, !1),
+            forcedGuarantee: s.Message.getBooleanFieldWithDefault(t, 6, !1),
+            bizScene: s.Message.getFieldWithDefault(t, 20, ''),
+            buriedPointMap: (o = t.getBuriedPointMap())
+              ? o.toObject(e, void 0)
+              : []
+          };
+        return e && (r.$jspbMessageInstance = t), r;
+      })),
+    (proto.webcast.im.RoomMessage.deserializeBinary = function (e) {
+      var t = new s.BinaryReader(e),
+        o = new proto.webcast.im.RoomMessage();
+      return proto.webcast.im.RoomMessage.deserializeBinaryFromReader(o, t);
+    }),
+    (proto.webcast.im.RoomMessage.deserializeBinaryFromReader = function (
+      e,
+      t
+    ) {
+      for (; t.nextField() && !t.isEndGroup(); ) {
+        switch (t.getFieldNumber()) {
+          case 1:
+            var o = new i.Common();
+            t.readMessage(o, i.Common.deserializeBinaryFromReader),
+              e.setCommon(o);
+            break;
+          case 2:
+            o = t.readString();
+            e.setContent(o);
+            break;
+          case 3:
+            o = t.readBool();
+            e.setSupprotLandscape(o);
+            break;
+          case 4:
+            o = t.readEnum();
+            e.setRoommessagetype(o);
+            break;
+          case 5:
+            o = t.readBool();
+            e.setSystemTopMsg(o);
+            break;
+          case 6:
+            o = t.readBool();
+            e.setForcedGuarantee(o);
+            break;
+          case 20:
+            o = t.readString();
+            e.setBizScene(o);
+            break;
+          case 30:
+            o = e.getBuriedPointMap();
+            t.readMessage(o, function (e, t) {
+              s.Map.deserializeBinary(
+                e,
+                t,
+                s.BinaryReader.prototype.readString,
+                s.BinaryReader.prototype.readString,
+                null,
+                '',
+                ''
+              );
+            });
+            break;
+          default:
+            t.skipField();
+        }
+      }
+      return e;
+    }),
+    (proto.webcast.im.RoomMessage.prototype.serializeBinary = function () {
+      var e = new s.BinaryWriter();
+      return (
+        proto.webcast.im.RoomMessage.serializeBinaryToWriter(this, e),
+        e.getResultBuffer()
+      );
+    }),
+    (proto.webcast.im.RoomMessage.serializeBinaryToWriter = function (e, t) {
+      var o = void 0;
+      null != (o = e.getCommon()) &&
+        t.writeMessage(1, o, i.Common.serializeBinaryToWriter),
+        (o = e.getContent()).length > 0 && t.writeString(2, o),
+        (o = e.getSupprotLandscape()) && t.writeBool(3, o),
+        0 !== (o = e.getRoommessagetype()) && t.writeEnum(4, o),
+        (o = e.getSystemTopMsg()) && t.writeBool(5, o),
+        (o = e.getForcedGuarantee()) && t.writeBool(6, o),
+        (o = e.getBizScene()).length > 0 && t.writeString(20, o),
+        (o = e.getBuriedPointMap(!0)) &&
+          o.getLength() > 0 &&
+          o.serializeBinary(
+            30,
+            t,
+            s.BinaryWriter.prototype.writeString,
+            s.BinaryWriter.prototype.writeString
+          );
+    }),
+    (proto.webcast.im.RoomMessage.prototype.getCommon = function () {
+      return s.Message.getWrapperField(this, i.Common, 1);
+    }),
+    (proto.webcast.im.RoomMessage.prototype.setCommon = function (e) {
+      return s.Message.setWrapperField(this, 1, e);
+    }),
+    (proto.webcast.im.RoomMessage.prototype.clearCommon = function () {
+      return this.setCommon(void 0);
+    }),
+    (proto.webcast.im.RoomMessage.prototype.hasCommon = function () {
+      return null != s.Message.getField(this, 1);
+    }),
+    (proto.webcast.im.RoomMessage.prototype.getContent = function () {
+      return s.Message.getFieldWithDefault(this, 2, '');
+    }),
+    (proto.webcast.im.RoomMessage.prototype.setContent = function (e) {
+      return s.Message.setProto3StringField(this, 2, e);
+    }),
+    (proto.webcast.im.RoomMessage.prototype.getSupprotLandscape = function () {
+      return s.Message.getBooleanFieldWithDefault(this, 3, !1);
+    }),
+    (proto.webcast.im.RoomMessage.prototype.setSupprotLandscape = function (e) {
+      return s.Message.setProto3BooleanField(this, 3, e);
+    }),
+    (proto.webcast.im.RoomMessage.prototype.getRoommessagetype = function () {
+      return s.Message.getFieldWithDefault(this, 4, 0);
+    }),
+    (proto.webcast.im.RoomMessage.prototype.setRoommessagetype = function (e) {
+      return s.Message.setProto3EnumField(this, 4, e);
+    }),
+    (proto.webcast.im.RoomMessage.prototype.getSystemTopMsg = function () {
+      return s.Message.getBooleanFieldWithDefault(this, 5, !1);
+    }),
+    (proto.webcast.im.RoomMessage.prototype.setSystemTopMsg = function (e) {
+      return s.Message.setProto3BooleanField(this, 5, e);
+    }),
+    (proto.webcast.im.RoomMessage.prototype.getForcedGuarantee = function () {
+      return s.Message.getBooleanFieldWithDefault(this, 6, !1);
+    }),
+    (proto.webcast.im.RoomMessage.prototype.setForcedGuarantee = function (e) {
+      return s.Message.setProto3BooleanField(this, 6, e);
+    }),
+    (proto.webcast.im.RoomMessage.prototype.getBizScene = function () {
+      return s.Message.getFieldWithDefault(this, 20, '');
+    }),
+    (proto.webcast.im.RoomMessage.prototype.setBizScene = function (e) {
+      return s.Message.setProto3StringField(this, 20, e);
+    }),
+    (proto.webcast.im.RoomMessage.prototype.getBuriedPointMap = function (e) {
+      return s.Message.getMapField(this, 30, e, null);
+    }),
+    (proto.webcast.im.RoomMessage.prototype.clearBuriedPointMap = function () {
+      return this.getBuriedPointMap().clear(), this;
+    }),
+    (proto.webcast.im.RoomMsgTypeEnum = {
+      DEFAULTROOMMSG: 0,
+      ECOMLIVEREPLAYSAVEROOMMSG: 1,
+      CONSUMERRELATIONROOMMSG: 2,
+      JUMANJIDATAAUTHNOTIFYMSG: 3,
+      VSWELCOMEMSG: 4,
+      MINORREFUNDMSG: 5,
+      PAIDLIVEROOMNOTIFYANCHORMSG: 6,
+      HOSTTEAMSYSTEMMSG: 7
+    });
+
+  (proto.webcast.im.Common.prototype.serializeBinary = function () {
+    var t = new a.BinaryWriter();
+    return (
+      proto.webcast.im.Common.serializeBinaryToWriter(this, t),
+      t.getResultBuffer()
+    );
+  }),
+    (proto.webcast.im.Common.serializeBinaryToWriter = function (t, e) {
+      var o = void 0;
+      (o = t.getMethod()).length > 0 && e.writeString(1, o),
+        (o = t.getMsgId()),
+        0 !== parseInt(o, 10) && e.writeInt64String(2, o),
+        (o = t.getRoomId()),
+        0 !== parseInt(o, 10) && e.writeInt64String(3, o),
+        (o = t.getCreateTime()),
+        0 !== parseInt(o, 10) && e.writeInt64String(4, o),
+        0 !== (o = t.getMonitor()) && e.writeInt32(5, o),
+        (o = t.getIsShowMsg()) && e.writeBool(6, o),
+        (o = t.getDescribe()).length > 0 && e.writeString(7, o),
+        null != (o = t.getDisplayText()) &&
+          e.writeMessage(8, o, n.Text.serializeBinaryToWriter),
+        (o = t.getFoldType()),
+        0 !== parseInt(o, 10) && e.writeInt64String(9, o),
+        (o = t.getAnchorFoldType()),
+        0 !== parseInt(o, 10) && e.writeInt64String(10, o),
+        (o = t.getPriorityScore()),
+        0 !== parseInt(o, 10) && e.writeInt64String(11, o),
+        (o = t.getLogId()).length > 0 && e.writeString(12, o),
+        (o = t.getMsgProcessFilterK()).length > 0 && e.writeString(13, o),
+        (o = t.getMsgProcessFilterV()).length > 0 && e.writeString(14, o),
+        null != (o = t.getUser()) &&
+          e.writeMessage(15, o, c.User.serializeBinaryToWriter),
+        null != (o = t.getRoom()) &&
+          e.writeMessage(16, o, p.Room.serializeBinaryToWriter),
+        (o = t.getAnchorFoldTypeV2()),
+        0 !== parseInt(o, 10) && e.writeInt64String(17, o),
+        (o = t.getProcessAtSeiTimeMs()),
+        0 !== parseInt(o, 10) && e.writeInt64String(18, o),
+        (o = t.getRandomDispatchMs()),
+        0 !== parseInt(o, 10) && e.writeInt64String(19, o),
+        (o = t.getIsDispatch()) && e.writeBool(20, o),
+        (o = t.getChannelId()),
+        0 !== parseInt(o, 10) && e.writeInt64String(21, o),
+        (o = t.getDiffSei2absSecond()),
+        0 !== parseInt(o, 10) && e.writeInt64String(22, o),
+        (o = t.getAnchorFoldDuration()),
+        0 !== parseInt(o, 10) && e.writeInt64String(23, o),
+        (o = t.getAppId()),
+        0 !== parseInt(o, 10) && e.writeInt64String(24, o);
+    }),
+    (proto.webcast.im.Common.prototype.getMethod = function () {
+      return a.Message.getFieldWithDefault(this, 1, '');
+    }),
+    (proto.webcast.im.Common.prototype.setMethod = function (t) {
+      return a.Message.setProto3StringField(this, 1, t);
+    }),
+    (proto.webcast.im.Common.prototype.getMsgId = function () {
+      return a.Message.getFieldWithDefault(this, 2, '0');
+    }),
+    (proto.webcast.im.Common.prototype.setMsgId = function (t) {
+      return a.Message.setProto3StringIntField(this, 2, t);
+    }),
+    (proto.webcast.im.Common.prototype.getRoomId = function () {
+      return a.Message.getFieldWithDefault(this, 3, '0');
+    }),
+    (proto.webcast.im.Common.prototype.setRoomId = function (t) {
+      return a.Message.setProto3StringIntField(this, 3, t);
+    }),
+    (proto.webcast.im.Common.prototype.getCreateTime = function () {
+      return a.Message.getFieldWithDefault(this, 4, '0');
+    }),
+    (proto.webcast.im.Common.prototype.setCreateTime = function (t) {
+      return a.Message.setProto3StringIntField(this, 4, t);
+    }),
+    (proto.webcast.im.Common.prototype.getMonitor = function () {
+      return a.Message.getFieldWithDefault(this, 5, 0);
+    }),
+    (proto.webcast.im.Common.prototype.setMonitor = function (t) {
+      return a.Message.setProto3IntField(this, 5, t);
+    }),
+    (proto.webcast.im.Common.prototype.getIsShowMsg = function () {
+      return a.Message.getBooleanFieldWithDefault(this, 6, !1);
+    }),
+    (proto.webcast.im.Common.prototype.setIsShowMsg = function (t) {
+      return a.Message.setProto3BooleanField(this, 6, t);
+    }),
+    (proto.webcast.im.Common.prototype.getDescribe = function () {
+      return a.Message.getFieldWithDefault(this, 7, '');
+    }),
+    (proto.webcast.im.Common.prototype.setDescribe = function (t) {
+      return a.Message.setProto3StringField(this, 7, t);
+    }),
+    (proto.webcast.im.Common.prototype.getDisplayText = function () {
+      return a.Message.getWrapperField(this, n.Text, 8);
+    }),
+    (proto.webcast.im.Common.prototype.setDisplayText = function (t) {
+      return a.Message.setWrapperField(this, 8, t);
+    }),
+    (proto.webcast.im.Common.prototype.clearDisplayText = function () {
+      return this.setDisplayText(void 0);
+    }),
+    (proto.webcast.im.Common.prototype.hasDisplayText = function () {
+      return null != a.Message.getField(this, 8);
+    }),
+    (proto.webcast.im.Common.prototype.getFoldType = function () {
+      return a.Message.getFieldWithDefault(this, 9, '0');
+    }),
+    (proto.webcast.im.Common.prototype.setFoldType = function (t) {
+      return a.Message.setProto3StringIntField(this, 9, t);
+    }),
+    (proto.webcast.im.Common.prototype.getAnchorFoldType = function () {
+      return a.Message.getFieldWithDefault(this, 10, '0');
+    }),
+    (proto.webcast.im.Common.prototype.setAnchorFoldType = function (t) {
+      return a.Message.setProto3StringIntField(this, 10, t);
+    }),
+    (proto.webcast.im.Common.prototype.getPriorityScore = function () {
+      return a.Message.getFieldWithDefault(this, 11, '0');
+    }),
+    (proto.webcast.im.Common.prototype.setPriorityScore = function (t) {
+      return a.Message.setProto3StringIntField(this, 11, t);
+    }),
+    (proto.webcast.im.Common.prototype.getLogId = function () {
+      return a.Message.getFieldWithDefault(this, 12, '');
+    }),
+    (proto.webcast.im.Common.prototype.setLogId = function (t) {
+      return a.Message.setProto3StringField(this, 12, t);
+    }),
+    (proto.webcast.im.Common.prototype.getMsgProcessFilterK = function () {
+      return a.Message.getFieldWithDefault(this, 13, '');
+    }),
+    (proto.webcast.im.Common.prototype.setMsgProcessFilterK = function (t) {
+      return a.Message.setProto3StringField(this, 13, t);
+    }),
+    (proto.webcast.im.Common.prototype.getMsgProcessFilterV = function () {
+      return a.Message.getFieldWithDefault(this, 14, '');
+    }),
+    (proto.webcast.im.Common.prototype.setMsgProcessFilterV = function (t) {
+      return a.Message.setProto3StringField(this, 14, t);
+    }),
+    (proto.webcast.im.Common.prototype.getUser = function () {
+      return a.Message.getWrapperField(this, c.User, 15);
+    }),
+    (proto.webcast.im.Common.prototype.setUser = function (t) {
+      return a.Message.setWrapperField(this, 15, t);
+    }),
+    (proto.webcast.im.Common.prototype.clearUser = function () {
+      return this.setUser(void 0);
+    }),
+    (proto.webcast.im.Common.prototype.hasUser = function () {
+      return null != a.Message.getField(this, 15);
+    }),
+    (proto.webcast.im.Common.prototype.getRoom = function () {
+      return a.Message.getWrapperField(this, p.Room, 16);
+    }),
+    (proto.webcast.im.Common.prototype.setRoom = function (t) {
+      return a.Message.setWrapperField(this, 16, t);
+    }),
+    (proto.webcast.im.Common.prototype.clearRoom = function () {
+      return this.setRoom(void 0);
+    }),
+    (proto.webcast.im.Common.prototype.hasRoom = function () {
+      return null != a.Message.getField(this, 16);
+    }),
+    (proto.webcast.im.Common.prototype.getAnchorFoldTypeV2 = function () {
+      return a.Message.getFieldWithDefault(this, 17, '0');
+    }),
+    (proto.webcast.im.Common.prototype.setAnchorFoldTypeV2 = function (t) {
+      return a.Message.setProto3StringIntField(this, 17, t);
+    }),
+    (proto.webcast.im.Common.prototype.getProcessAtSeiTimeMs = function () {
+      return a.Message.getFieldWithDefault(this, 18, '0');
+    }),
+    (proto.webcast.im.Common.prototype.setProcessAtSeiTimeMs = function (t) {
+      return a.Message.setProto3StringIntField(this, 18, t);
+    }),
+    (proto.webcast.im.Common.prototype.getRandomDispatchMs = function () {
+      return a.Message.getFieldWithDefault(this, 19, '0');
+    }),
+    (proto.webcast.im.Common.prototype.setRandomDispatchMs = function (t) {
+      return a.Message.setProto3StringIntField(this, 19, t);
+    }),
+    (proto.webcast.im.Common.prototype.getIsDispatch = function () {
+      return a.Message.getBooleanFieldWithDefault(this, 20, !1);
+    }),
+    (proto.webcast.im.Common.prototype.setIsDispatch = function (t) {
+      return a.Message.setProto3BooleanField(this, 20, t);
+    }),
+    (proto.webcast.im.Common.prototype.getChannelId = function () {
+      return a.Message.getFieldWithDefault(this, 21, '0');
+    }),
+    (proto.webcast.im.Common.prototype.setChannelId = function (t) {
+      return a.Message.setProto3StringIntField(this, 21, t);
+    }),
+    (proto.webcast.im.Common.prototype.getDiffSei2absSecond = function () {
+      return a.Message.getFieldWithDefault(this, 22, '0');
+    }),
+    (proto.webcast.im.Common.prototype.setDiffSei2absSecond = function (t) {
+      return a.Message.setProto3StringIntField(this, 22, t);
+    }),
+    (proto.webcast.im.Common.prototype.getAnchorFoldDuration = function () {
+      return a.Message.getFieldWithDefault(this, 23, '0');
+    }),
+    (proto.webcast.im.Common.prototype.setAnchorFoldDuration = function (t) {
+      return a.Message.setProto3StringIntField(this, 23, t);
+    }),
+    (proto.webcast.im.Common.prototype.getAppId = function () {
+      return a.Message.getFieldWithDefault(this, 24, '0');
+    }),
+    (proto.webcast.im.Common.prototype.setAppId = function (t) {
+      return a.Message.setProto3StringIntField(this, 24, t);
+    }),
+    ((proto.webcast.im.PublicAreaCommon.prototype.toObject = function (t) {
+      return proto.webcast.im.PublicAreaCommon.toObject(t, this);
+    }),
+    (proto.webcast.im.PublicAreaCommon.toObject = function (t, e) {
+      var o,
+        r = {
+          userLabel: (o = e.getUserLabel()) && s.Image.toObject(t, o),
+          userConsumeInRoom: a.Message.getFieldWithDefault(e, 2, '0'),
+          userSendGiftCntInRoom: a.Message.getFieldWithDefault(e, 3, '0')
+        };
+      return t && (r.$jspbMessageInstance = e), r;
+    })),
+    (proto.webcast.im.PublicAreaCommon.deserializeBinary = function (t) {
+      var e = new a.BinaryReader(t),
+        o = new proto.webcast.im.PublicAreaCommon();
+      return proto.webcast.im.PublicAreaCommon.deserializeBinaryFromReader(
+        o,
+        e
+      );
+    }),
+    (proto.webcast.im.PublicAreaCommon.deserializeBinaryFromReader = function (
+      t,
+      e
+    ) {
+      for (; e.nextField() && !e.isEndGroup(); ) {
+        switch (e.getFieldNumber()) {
+          case 1:
+            var o = new s.Image();
+            e.readMessage(o, s.Image.deserializeBinaryFromReader),
+              t.setUserLabel(o);
+            break;
+          case 2:
+            o = e.readInt64String();
+            t.setUserConsumeInRoom(o);
+            break;
+          case 3:
+            o = e.readInt64String();
+            t.setUserSendGiftCntInRoom(o);
+            break;
+          default:
+            e.skipField();
+        }
+      }
+      return t;
+    }),
+    (proto.webcast.im.PublicAreaCommon.prototype.serializeBinary = function () {
+      var t = new a.BinaryWriter();
+      return (
+        proto.webcast.im.PublicAreaCommon.serializeBinaryToWriter(this, t),
+        t.getResultBuffer()
+      );
+    }),
+    (proto.webcast.im.PublicAreaCommon.serializeBinaryToWriter = function (
+      t,
+      e
+    ) {
+      var o = void 0;
+      null != (o = t.getUserLabel()) &&
+        e.writeMessage(1, o, s.Image.serializeBinaryToWriter),
+        (o = t.getUserConsumeInRoom()),
+        0 !== parseInt(o, 10) && e.writeInt64String(2, o),
+        (o = t.getUserSendGiftCntInRoom()),
+        0 !== parseInt(o, 10) && e.writeInt64String(3, o);
+    }),
+    (proto.webcast.im.PublicAreaCommon.prototype.getUserLabel = function () {
+      return a.Message.getWrapperField(this, s.Image, 1);
+    }),
+    (proto.webcast.im.PublicAreaCommon.prototype.setUserLabel = function (t) {
+      return a.Message.setWrapperField(this, 1, t);
+    }),
+    (proto.webcast.im.PublicAreaCommon.prototype.clearUserLabel = function () {
+      return this.setUserLabel(void 0);
+    }),
+    (proto.webcast.im.PublicAreaCommon.prototype.hasUserLabel = function () {
+      return null != a.Message.getField(this, 1);
+    }),
+    (proto.webcast.im.PublicAreaCommon.prototype.getUserConsumeInRoom =
+      function () {
+        return a.Message.getFieldWithDefault(this, 2, '0');
+      }),
+    (proto.webcast.im.PublicAreaCommon.prototype.setUserConsumeInRoom =
+      function (t) {
+        return a.Message.setProto3StringIntField(this, 2, t);
+      }),
+    (proto.webcast.im.PublicAreaCommon.prototype.getUserSendGiftCntInRoom =
+      function () {
+        return a.Message.getFieldWithDefault(this, 3, '0');
+      }),
+    (proto.webcast.im.PublicAreaCommon.prototype.setUserSendGiftCntInRoom =
+      function (t) {
+        return a.Message.setProto3StringIntField(this, 3, t);
+      }),
+    (proto.webcast.im.LandscapeAreaCommon.repeatedFields_ = [4, 5]),
+    ((proto.webcast.im.LandscapeAreaCommon.prototype.toObject = function (t) {
+      return proto.webcast.im.LandscapeAreaCommon.toObject(t, this);
+    }),
+    (proto.webcast.im.LandscapeAreaCommon.toObject = function (t, e) {
+      var o,
+        r = {
+          showHead: a.Message.getBooleanFieldWithDefault(e, 1, !1),
+          showNickname: a.Message.getBooleanFieldWithDefault(e, 2, !1),
+          showFontColor: a.Message.getBooleanFieldWithDefault(e, 3, !1),
+          colorValueList:
+            null == (o = a.Message.getRepeatedField(e, 4)) ? void 0 : o,
+          commentTypeTagsList:
+            null == (o = a.Message.getRepeatedField(e, 5)) ? void 0 : o
+        };
+      return t && (r.$jspbMessageInstance = e), r;
+    })),
+    (proto.webcast.im.LandscapeAreaCommon.deserializeBinary = function (t) {
+      var e = new a.BinaryReader(t),
+        o = new proto.webcast.im.LandscapeAreaCommon();
+      return proto.webcast.im.LandscapeAreaCommon.deserializeBinaryFromReader(
+        o,
+        e
+      );
+    }),
+    (proto.webcast.im.LandscapeAreaCommon.deserializeBinaryFromReader =
+      function (t, e) {
+        for (; e.nextField() && !e.isEndGroup(); ) {
+          switch (e.getFieldNumber()) {
+            case 1:
+              var o = e.readBool();
+              t.setShowHead(o);
+              break;
+            case 2:
+              o = e.readBool();
+              t.setShowNickname(o);
+              break;
+            case 3:
+              o = e.readBool();
+              t.setShowFontColor(o);
+              break;
+            case 4:
+              o = e.readString();
+              t.addColorValue(o);
+              break;
+            case 5:
+              for (
+                var a = e.isDelimited() ? e.readPackedEnum() : [e.readEnum()],
+                  r = 0;
+                r < a.length;
+                r++
+              )
+                t.addCommentTypeTags(a[r]);
+              break;
+            default:
+              e.skipField();
+          }
+        }
+        return t;
+      }),
+    (proto.webcast.im.LandscapeAreaCommon.prototype.serializeBinary =
+      function () {
+        var t = new a.BinaryWriter();
+        return (
+          proto.webcast.im.LandscapeAreaCommon.serializeBinaryToWriter(this, t),
+          t.getResultBuffer()
+        );
+      }),
+    (proto.webcast.im.LandscapeAreaCommon.serializeBinaryToWriter = function (
+      t,
+      e
+    ) {
+      var o = void 0;
+      (o = t.getShowHead()) && e.writeBool(1, o),
+        (o = t.getShowNickname()) && e.writeBool(2, o),
+        (o = t.getShowFontColor()) && e.writeBool(3, o),
+        (o = t.getColorValueList()).length > 0 && e.writeRepeatedString(4, o),
+        (o = t.getCommentTypeTagsList()).length > 0 && e.writePackedEnum(5, o);
+    }),
+    (proto.webcast.im.LandscapeAreaCommon.prototype.getShowHead = function () {
+      return a.Message.getBooleanFieldWithDefault(this, 1, !1);
+    }),
+    (proto.webcast.im.LandscapeAreaCommon.prototype.setShowHead = function (t) {
+      return a.Message.setProto3BooleanField(this, 1, t);
+    }),
+    (proto.webcast.im.LandscapeAreaCommon.prototype.getShowNickname =
+      function () {
+        return a.Message.getBooleanFieldWithDefault(this, 2, !1);
+      }),
+    (proto.webcast.im.LandscapeAreaCommon.prototype.setShowNickname = function (
+      t
+    ) {
+      return a.Message.setProto3BooleanField(this, 2, t);
+    }),
+    (proto.webcast.im.LandscapeAreaCommon.prototype.getShowFontColor =
+      function () {
+        return a.Message.getBooleanFieldWithDefault(this, 3, !1);
+      }),
+    (proto.webcast.im.LandscapeAreaCommon.prototype.setShowFontColor =
+      function (t) {
+        return a.Message.setProto3BooleanField(this, 3, t);
+      }),
+    (proto.webcast.im.LandscapeAreaCommon.prototype.getColorValueList =
+      function () {
+        return a.Message.getRepeatedField(this, 4);
+      }),
+    (proto.webcast.im.LandscapeAreaCommon.prototype.setColorValueList =
+      function (t) {
+        return a.Message.setField(this, 4, t || []);
+      }),
+    (proto.webcast.im.LandscapeAreaCommon.prototype.addColorValue = function (
+      t,
+      e
+    ) {
+      return a.Message.addToRepeatedField(this, 4, t, e);
+    }),
+    (proto.webcast.im.LandscapeAreaCommon.prototype.clearColorValueList =
+      function () {
+        return this.setColorValueList([]);
+      }),
+    (proto.webcast.im.LandscapeAreaCommon.prototype.getCommentTypeTagsList =
+      function () {
+        return a.Message.getRepeatedField(this, 5);
+      }),
+    (proto.webcast.im.LandscapeAreaCommon.prototype.setCommentTypeTagsList =
+      function (t) {
+        return a.Message.setField(this, 5, t || []);
+      }),
+    (proto.webcast.im.LandscapeAreaCommon.prototype.addCommentTypeTags =
+      function (t, e) {
+        return a.Message.addToRepeatedField(this, 5, t, e);
+      }),
+    (proto.webcast.im.LandscapeAreaCommon.prototype.clearCommentTypeTagsList =
+      function () {
+        return this.setCommentTypeTagsList([]);
+      }),
+    (proto.webcast.im.FlexImageStruct.repeatedFields_ = [1, 3, 4]),
+    ((proto.webcast.im.FlexImageStruct.prototype.toObject = function (t) {
+      return proto.webcast.im.FlexImageStruct.toObject(t, this);
+    }),
+    (proto.webcast.im.FlexImageStruct.toObject = function (t, e) {
+      var o,
+        r = {
+          urlListList:
+            null == (o = a.Message.getRepeatedField(e, 1)) ? void 0 : o,
+          uri: a.Message.getFieldWithDefault(e, 2, ''),
+          flexSettingList:
+            null == (o = a.Message.getRepeatedField(e, 3)) ? void 0 : o,
+          textSettingList:
+            null == (o = a.Message.getRepeatedField(e, 4)) ? void 0 : o,
+          topBorderHeight: a.Message.getFieldWithDefault(e, 5, '0')
+        };
+      return t && (r.$jspbMessageInstance = e), r;
+    })),
+    (proto.webcast.im.FlexImageStruct.deserializeBinary = function (t) {
+      var e = new a.BinaryReader(t),
+        o = new proto.webcast.im.FlexImageStruct();
+      return proto.webcast.im.FlexImageStruct.deserializeBinaryFromReader(o, e);
+    }),
+    (proto.webcast.im.FlexImageStruct.deserializeBinaryFromReader = function (
+      t,
+      e
+    ) {
+      for (; e.nextField() && !e.isEndGroup(); ) {
+        switch (e.getFieldNumber()) {
+          case 1:
+            var o = e.readString();
+            t.addUrlList(o);
+            break;
+          case 2:
+            o = e.readString();
+            t.setUri(o);
+            break;
+          case 3:
+            for (
+              var a = e.isDelimited()
+                  ? e.readPackedInt64String()
+                  : [e.readInt64String()],
+                r = 0;
+              r < a.length;
+              r++
+            )
+              t.addFlexSetting(a[r]);
+            break;
+          case 4:
+            for (
+              a = e.isDelimited()
+                ? e.readPackedInt64String()
+                : [e.readInt64String()],
+                r = 0;
+              r < a.length;
+              r++
+            )
+              t.addTextSetting(a[r]);
+            break;
+          case 5:
+            o = e.readInt64String();
+            t.setTopBorderHeight(o);
+            break;
+          default:
+            e.skipField();
+        }
+      }
+      return t;
+    }),
+    (proto.webcast.im.FlexImageStruct.prototype.serializeBinary = function () {
+      var t = new a.BinaryWriter();
+      return (
+        proto.webcast.im.FlexImageStruct.serializeBinaryToWriter(this, t),
+        t.getResultBuffer()
+      );
+    }),
+    (proto.webcast.im.FlexImageStruct.serializeBinaryToWriter = function (
+      t,
+      e
+    ) {
+      var o = void 0;
+      (o = t.getUrlListList()).length > 0 && e.writeRepeatedString(1, o),
+        (o = t.getUri()).length > 0 && e.writeString(2, o),
+        (o = t.getFlexSettingList()).length > 0 &&
+          e.writePackedInt64String(3, o),
+        (o = t.getTextSettingList()).length > 0 &&
+          e.writePackedInt64String(4, o),
+        (o = t.getTopBorderHeight()),
+        0 !== parseInt(o, 10) && e.writeInt64String(5, o);
+    }),
+    (proto.webcast.im.FlexImageStruct.prototype.getUrlListList = function () {
+      return a.Message.getRepeatedField(this, 1);
+    }),
+    (proto.webcast.im.FlexImageStruct.prototype.setUrlListList = function (t) {
+      return a.Message.setField(this, 1, t || []);
+    }),
+    (proto.webcast.im.FlexImageStruct.prototype.addUrlList = function (t, e) {
+      return a.Message.addToRepeatedField(this, 1, t, e);
+    }),
+    (proto.webcast.im.FlexImageStruct.prototype.clearUrlListList = function () {
+      return this.setUrlListList([]);
+    }),
+    (proto.webcast.im.FlexImageStruct.prototype.getUri = function () {
+      return a.Message.getFieldWithDefault(this, 2, '');
+    }),
+    (proto.webcast.im.FlexImageStruct.prototype.setUri = function (t) {
+      return a.Message.setProto3StringField(this, 2, t);
+    }),
+    (proto.webcast.im.FlexImageStruct.prototype.getFlexSettingList =
+      function () {
+        return a.Message.getRepeatedField(this, 3);
+      }),
+    (proto.webcast.im.FlexImageStruct.prototype.setFlexSettingList = function (
+      t
+    ) {
+      return a.Message.setField(this, 3, t || []);
+    }),
+    (proto.webcast.im.FlexImageStruct.prototype.addFlexSetting = function (
+      t,
+      e
+    ) {
+      return a.Message.addToRepeatedField(this, 3, t, e);
+    }),
+    (proto.webcast.im.FlexImageStruct.prototype.clearFlexSettingList =
+      function () {
+        return this.setFlexSettingList([]);
+      }),
+    (proto.webcast.im.FlexImageStruct.prototype.getTextSettingList =
+      function () {
+        return a.Message.getRepeatedField(this, 4);
+      }),
+    (proto.webcast.im.FlexImageStruct.prototype.setTextSettingList = function (
+      t
+    ) {
+      return a.Message.setField(this, 4, t || []);
+    }),
+    (proto.webcast.im.FlexImageStruct.prototype.addTextSetting = function (
+      t,
+      e
+    ) {
+      return a.Message.addToRepeatedField(this, 4, t, e);
+    }),
+    (proto.webcast.im.FlexImageStruct.prototype.clearTextSettingList =
+      function () {
+        return this.setTextSettingList([]);
+      }),
+    (proto.webcast.im.FlexImageStruct.prototype.getTopBorderHeight =
+      function () {
+        return a.Message.getFieldWithDefault(this, 5, '0');
+      }),
+    (proto.webcast.im.FlexImageStruct.prototype.setTopBorderHeight = function (
+      t
+    ) {
+      return a.Message.setProto3StringIntField(this, 5, t);
+    }),
+    ((proto.webcast.im.CommonBubbleConfig.prototype.toObject = function (t) {
+      return proto.webcast.im.CommonBubbleConfig.toObject(t, this);
+    }),
+    (proto.webcast.im.CommonBubbleConfig.toObject = function (t, e) {
+      var o,
+        r = {
+          content: a.Message.getFieldWithDefault(e, 1, ''),
+          duration: a.Message.getFieldWithDefault(e, 2, '0'),
+          richText: (o = e.getRichText()) && n.Text.toObject(t, o),
+          schemeUrl: a.Message.getFieldWithDefault(e, 4, ''),
+          backgroundImage:
+            (o = e.getBackgroundImage()) &&
+            proto.webcast.im.FlexImageStruct.toObject(t, o),
+          arrowImage: (o = e.getArrowImage()) && s.Image.toObject(t, o),
+          messageType: a.Message.getFieldWithDefault(e, 7, 0),
+          arrowPosition: a.Message.getFieldWithDefault(e, 8, 0)
+        };
+      return t && (r.$jspbMessageInstance = e), r;
+    })),
+    (proto.webcast.im.CommonBubbleConfig.deserializeBinary = function (t) {
+      var e = new a.BinaryReader(t),
+        o = new proto.webcast.im.CommonBubbleConfig();
+      return proto.webcast.im.CommonBubbleConfig.deserializeBinaryFromReader(
+        o,
+        e
+      );
+    }),
+    (proto.webcast.im.CommonBubbleConfig.deserializeBinaryFromReader =
+      function (t, e) {
+        for (; e.nextField() && !e.isEndGroup(); ) {
+          switch (e.getFieldNumber()) {
+            case 1:
+              var o = e.readString();
+              t.setContent(o);
+              break;
+            case 2:
+              o = e.readInt64String();
+              t.setDuration(o);
+              break;
+            case 3:
+              o = new n.Text();
+              e.readMessage(o, n.Text.deserializeBinaryFromReader),
+                t.setRichText(o);
+              break;
+            case 4:
+              o = e.readString();
+              t.setSchemeUrl(o);
+              break;
+            case 5:
+              o = new proto.webcast.im.FlexImageStruct();
+              e.readMessage(
+                o,
+                proto.webcast.im.FlexImageStruct.deserializeBinaryFromReader
+              ),
+                t.setBackgroundImage(o);
+              break;
+            case 6:
+              o = new s.Image();
+              e.readMessage(o, s.Image.deserializeBinaryFromReader),
+                t.setArrowImage(o);
+              break;
+            case 7:
+              o = e.readEnum();
+              t.setMessageType(o);
+              break;
+            case 8:
+              o = e.readEnum();
+              t.setArrowPosition(o);
+              break;
+            default:
+              e.skipField();
+          }
+        }
+        return t;
+      }),
+    (proto.webcast.im.CommonBubbleConfig.prototype.serializeBinary =
+      function () {
+        var t = new a.BinaryWriter();
+        return (
+          proto.webcast.im.CommonBubbleConfig.serializeBinaryToWriter(this, t),
+          t.getResultBuffer()
+        );
+      }),
+    (proto.webcast.im.CommonBubbleConfig.serializeBinaryToWriter = function (
+      t,
+      e
+    ) {
+      var o = void 0;
+      (o = t.getContent()).length > 0 && e.writeString(1, o),
+        (o = t.getDuration()),
+        0 !== parseInt(o, 10) && e.writeInt64String(2, o),
+        null != (o = t.getRichText()) &&
+          e.writeMessage(3, o, n.Text.serializeBinaryToWriter),
+        (o = t.getSchemeUrl()).length > 0 && e.writeString(4, o),
+        null != (o = t.getBackgroundImage()) &&
+          e.writeMessage(
+            5,
+            o,
+            proto.webcast.im.FlexImageStruct.serializeBinaryToWriter
+          ),
+        null != (o = t.getArrowImage()) &&
+          e.writeMessage(6, o, s.Image.serializeBinaryToWriter),
+        0 !== (o = t.getMessageType()) && e.writeEnum(7, o),
+        0 !== (o = t.getArrowPosition()) && e.writeEnum(8, o);
+    }),
+    (proto.webcast.im.CommonBubbleConfig.MessageType = {
+      MESSAGETYPEUNKNOWN: 0,
+      MESSAGETYPEEXHIBITION: 1
+    }),
+    (proto.webcast.im.CommonBubbleConfig.prototype.getContent = function () {
+      return a.Message.getFieldWithDefault(this, 1, '');
+    }),
+    (proto.webcast.im.CommonBubbleConfig.prototype.setContent = function (t) {
+      return a.Message.setProto3StringField(this, 1, t);
+    }),
+    (proto.webcast.im.CommonBubbleConfig.prototype.getDuration = function () {
+      return a.Message.getFieldWithDefault(this, 2, '0');
+    }),
+    (proto.webcast.im.CommonBubbleConfig.prototype.setDuration = function (t) {
+      return a.Message.setProto3StringIntField(this, 2, t);
+    }),
+    (proto.webcast.im.CommonBubbleConfig.prototype.getRichText = function () {
+      return a.Message.getWrapperField(this, n.Text, 3);
+    }),
+    (proto.webcast.im.CommonBubbleConfig.prototype.setRichText = function (t) {
+      return a.Message.setWrapperField(this, 3, t);
+    }),
+    (proto.webcast.im.CommonBubbleConfig.prototype.clearRichText = function () {
+      return this.setRichText(void 0);
+    }),
+    (proto.webcast.im.CommonBubbleConfig.prototype.hasRichText = function () {
+      return null != a.Message.getField(this, 3);
+    }),
+    (proto.webcast.im.CommonBubbleConfig.prototype.getSchemeUrl = function () {
+      return a.Message.getFieldWithDefault(this, 4, '');
+    }),
+    (proto.webcast.im.CommonBubbleConfig.prototype.setSchemeUrl = function (t) {
+      return a.Message.setProto3StringField(this, 4, t);
+    }),
+    (proto.webcast.im.CommonBubbleConfig.prototype.getBackgroundImage =
+      function () {
+        return a.Message.getWrapperField(
+          this,
+          proto.webcast.im.FlexImageStruct,
+          5
+        );
+      }),
+    (proto.webcast.im.CommonBubbleConfig.prototype.setBackgroundImage =
+      function (t) {
+        return a.Message.setWrapperField(this, 5, t);
+      }),
+    (proto.webcast.im.CommonBubbleConfig.prototype.clearBackgroundImage =
+      function () {
+        return this.setBackgroundImage(void 0);
+      }),
+    (proto.webcast.im.CommonBubbleConfig.prototype.hasBackgroundImage =
+      function () {
+        return null != a.Message.getField(this, 5);
+      }),
+    (proto.webcast.im.CommonBubbleConfig.prototype.getArrowImage = function () {
+      return a.Message.getWrapperField(this, s.Image, 6);
+    }),
+    (proto.webcast.im.CommonBubbleConfig.prototype.setArrowImage = function (
+      t
+    ) {
+      return a.Message.setWrapperField(this, 6, t);
+    }),
+    (proto.webcast.im.CommonBubbleConfig.prototype.clearArrowImage =
+      function () {
+        return this.setArrowImage(void 0);
+      }),
+    (proto.webcast.im.CommonBubbleConfig.prototype.hasArrowImage = function () {
+      return null != a.Message.getField(this, 6);
+    }),
+    (proto.webcast.im.CommonBubbleConfig.prototype.getMessageType =
+      function () {
+        return a.Message.getFieldWithDefault(this, 7, 0);
+      }),
+    (proto.webcast.im.CommonBubbleConfig.prototype.setMessageType = function (
+      t
+    ) {
+      return a.Message.setProto3EnumField(this, 7, t);
+    }),
+    (proto.webcast.im.CommonBubbleConfig.prototype.getArrowPosition =
+      function () {
+        return a.Message.getFieldWithDefault(this, 8, 0);
+      }),
+    (proto.webcast.im.CommonBubbleConfig.prototype.setArrowPosition = function (
+      t
+    ) {
+      return a.Message.setProto3EnumField(this, 8, t);
+    }),
+    (proto.webcast.im.CommentTypeTag = {
+      COMMENTTYPETAGUNKNOWN: 0,
+      COMMENTTYPETAGSTAR: 1
+    }),
+    (proto.webcast.im.BubbleArrowPosition = {
+      POSITIONUNKNOWN: 0,
+      POSITIONANCHORAVATAR: 1,
+      POSITIONROOMFANTICKETCOUNT: 2
+    });
   s.object.extend(t, proto.webcast.im);
 };

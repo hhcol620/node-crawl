@@ -69,16 +69,16 @@ export default class msg {
   runAllEvents(e, t) {
     // var a;
     for (const [o, i] of this.eventsMap.entries()) {
-      // console.log('run-----', o);
 
       const a = this.messageModules[o];
       if (i && a && this.isCorrectEventName(o, e)) {
-        const r = t.getPayload_asU8(),
-          s = a.deserializeBinary(r);
+        const r = t.getPayload_asU8();
+        // console.log(new TextDecoder("utf-8").decode(r));
+        const s = a.deserializeBinary(r);
         console.log(s);
-        return void i.forEach((e) => {
-          e(s, t, r);
-        });
+        // return void i.forEach((e) => {
+        //   e(s, t, r);
+        // });
       }
     }
     // const r =
