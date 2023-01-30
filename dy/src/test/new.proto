@@ -1,0 +1,231 @@
+syntax = "proto3";
+message pushproto_PushHeader{
+ string key=1;
+ string value=2;
+}
+message pushproto_PushFrame{
+ uint64 seqid=1;
+ uint64 logid=2;
+ uint64 service=3;
+ uint64 method=4;
+repeated pushproto_PushHeader headers=5;
+ string payloadencoding=6;
+ string payloadtype=7;
+ bytes payload=8;
+}
+message webcast_im_Response{
+repeated webcast_im_Message messages=1;
+ string cursor=2;
+ int64 fetchinterval=3;
+ int64 now=4;
+ string internalext=5;
+ int32 fetchtype=6;
+ int64 heartbeatduration=8;
+ bool needack=9;
+ string pushserver=10;
+ string livecursor=11;
+ bool historynomore=12;
+}
+message webcast_im_Message{
+ string method=1;
+ bytes payload=2;
+ int64 msgid=3;
+ int32 msgtype=4;
+ int64 offset=5;
+ bool needwrdsstore=6;
+ int64 wrdsversion=7;
+ string wrdssubkey=8;
+}
+message webcast_im_CouponActivityInfoMessage{
+ int64 activitytype=1;
+ string beforetext=2;
+ string beforebutton=3;
+ string aftertext=4;
+ string afterbutton=5;
+}
+message webcast_im_CouponMetaInfoMessage{
+ string couponmetaid=1;
+ string starttime=2;
+ string expiretime=3;
+ int64 periodtype=4;
+ int64 validperiod=5;
+ string startapplytime=6;
+ string endapplytime=7;
+ string couponname=8;
+ string url=9;
+ int64 threshold=10;
+ int64 credit=11;
+ int64 maxapplytimes=12;
+ int64 type=13;
+ string typedetail=14;
+ double discount=15;
+ string shopid=16;
+ int64 paytype=17;
+ int64 maxdiscountlimit=18;
+ string shopname=19;
+ string typestring=20;
+ string whatcoupon=21;
+ string couponstring=22;
+ int64 channelid=23;
+ int64 leftamount=24;
+ int64 hasapplied=25;
+ int64 status=26;
+ string shoplogo=27;
+ int64 isshow=28;
+ int64 totalamount=29;
+ int32 livecouponstatus=30;
+ int32 couponsource=31;
+ int64 userapplytimes=32;
+ bool cancontinueapply=33;
+ bool couponstatus=34;
+ bool couponreset=35;
+ int64 starttimetimestamp=36;
+ int64 expiretimetimestamp=37;
+ string avatar=38;
+ int64 koluid=39;
+ int64 platformsubtype=41;
+ bool hasavailablegoods=42;
+ string typetitle=43;
+ int64 kolusertag=45;
+ string typeicon=46;
+ int64 typeiconwidth=47;
+ int64 typeiconheight=48;
+ string couponcategory=49;
+}
+message webcast_im_LiveEcomMessage{
+ Common common=1;
+enum Msgtype {
+msgtype_0=0;
+}
+ Msgtype msgtype=2;
+ string nickname=3;
+ int64 purchasecnt=4;
+ string text=5;
+ string icon=6;
+ int64 metaid=7;
+ int64 servertime=8;
+ int64 countdown=9;
+ string activityjsonstr=10;
+enum Coupontype {
+coupontype_0=0;
+}
+ Coupontype coupontype=11;
+ webcast_im_CouponActivityInfoMessage activityinfo=12;
+ webcast_im_CouponMetaInfoMessage couponmeta=13;
+ string metaidstr=14;
+}
+message webcast_im_MemberMessage{
+ Common common=1;
+ User user=2;
+ int64 membercount=3;
+ User operator=4;
+ bool issettoadmin=5;
+ bool istopuser=6;
+ int64 rankscore=7;
+ int64 topuserno=8;
+ int64 entertype=9;
+ int64 action=10;
+ string actiondescription=11;
+ int64 userid=12;
+ webcast_im_MemberMessage_EffectConfig effectconfig=13;
+ string popstr=14;
+ webcast_im_MemberMessage_EffectConfig entereffectconfig=15;
+ Image backgroundimage=16;
+ Image backgroundimagev2=17;
+ Text anchordisplaytext=18;
+ PublicAreaCommon publicareacommon=19;
+ int64 userentertiptype=20;
+ int64 anchorentertiptype=21;
+}
+message webcast_im_Common{
+ string method=1;
+ int64 msgid=2;
+ int64 roomid=3;
+ int64 createtime=4;
+ int32 monitor=5;
+ bool isshowmsg=6;
+ string describe=7;
+ Text displaytext=8;
+ int64 foldtype=9;
+ int64 anchorfoldtype=10;
+ int64 priorityscore=11;
+ string logid=12;
+ string msgprocessfilterk=13;
+ string msgprocessfilterv=14;
+ User user=15;
+ Room room=16;
+ int64 anchorfoldtypev2=17;
+ int64 processatseitimems=18;
+ int64 randomdispatchms=19;
+ bool isdispatch=20;
+ int64 channelid=21;
+ int64 diffsei2abssecond=22;
+ int64 anchorfoldduration=23;
+ int64 appid=24;
+}
+message webcast_im_MemberMessage_EffectConfig{
+ int64 type=1;
+ Image icon=2;
+ int64 avatarpos=3;
+ Text text=4;
+ Image texticon=5;
+ int32 staytime=6;
+ int64 animassetid=7;
+ Image badge=8;
+ Image texticonoverlay=10;
+ Image animatedbadge=11;
+ bool hassweeplight=12;
+ int64 centeranimassetid=14;
+ Image dynamicimage=15;
+ int64 mp4animassetid=17;
+ int64 priority=18;
+ int64 maxwaittime=19;
+ string dressid=20;
+ int64 alignment=21;
+ int64 alignmentoffset=22;
+ string effectscene=23;
+}
+message webcast_im_RoomMessage{
+ Common common=1;
+ string content=2;
+ bool supprotlandscape=3;
+enum Roommessagetype {
+roommessagetype_0=0;
+}
+ Roommessagetype roommessagetype=4;
+ bool systemtopmsg=5;
+ bool forcedguarantee=6;
+ string bizscene=20;
+}
+message webcast_im_PublicAreaCommon{
+ Image userlabel=1;
+ int64 userconsumeinroom=2;
+ int64 usersendgiftcntinroom=3;
+}
+message webcast_im_LandscapeAreaCommon{
+ bool showhead=1;
+ bool shownickname=2;
+ bool showfontcolor=3;
+repeated string colorvalue=4;
+}
+message webcast_im_FlexImageStruct{
+repeated string urllist=1;
+ string uri=2;
+ int64 topborderheight=5;
+}
+message webcast_im_CommonBubbleConfig{
+ string content=1;
+ int64 duration=2;
+ Text richtext=3;
+ string schemeurl=4;
+ webcast_im_FlexImageStruct backgroundimage=5;
+ Image arrowimage=6;
+enum Messagetype {
+messagetype_0=0;
+}
+ Messagetype messagetype=7;
+enum Arrowposition {
+arrowposition_0=0;
+}
+ Arrowposition arrowposition=8;
+}
