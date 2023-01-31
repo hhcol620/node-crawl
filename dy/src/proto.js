@@ -16,6 +16,7 @@ export default (t = {}) => {
         ? self
         : Function('return this')();
     }.call(null);
+    console.log(o)
   a.exportSymbol('proto.pushproto.PushFrame', null, r),
     a.exportSymbol('proto.pushproto.PushHeader', null, r),
     (proto.pushproto.PushHeader = function (e) {

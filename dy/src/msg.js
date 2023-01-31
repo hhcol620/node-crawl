@@ -64,7 +64,7 @@ export default class msg {
     }
   }
   isCorrectEventName(e, t) {
-    return `Webcast${e}` === t || t === e;
+    return `webcast_im_Webcast${e}` === t || t === e;
   }
   runAllEvents(e, t) {
     // var a;
@@ -93,7 +93,7 @@ export default class msg {
     t.length &&
       t.forEach((e) => {
         const t = e.getMethod(),
-          a = 'RoomMessage' === t ? t : e.getMsgId();
+          a = 'RoomMessage' === t ? t : e.getMsgid();
         if (!this.messageIdsForDistinct.has(a)) {
           this.messageIdsForDistinct.add(a);
           this.runAllEvents(t, e);

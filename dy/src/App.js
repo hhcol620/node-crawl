@@ -1,18 +1,15 @@
 /* eslint-disable */
 
 import './App.css';
-import jsbp from './proto';
 import JE from './JE.js';
 import Msg from './msg';
 
-jsbp();
 JE();
-const p = window.proto.pushproto;
-const r = window.proto.webcast.im;
-const msg = new Msg({ modules: r });
+const proto = window.proto
+const msg = new Msg({ modules: proto });
 
 //
-['LiveEcomGeneralMessage', 'MemberMessage'].forEach((item) => {
+['webcast_im_LiveEcomGeneralMessage', 'webcast_im_MemberMessage'].forEach((item) => {
   msg.on(item, function (e) {
     var t,
       r,
@@ -44,8 +41,8 @@ function App() {
   ws.onmessage = function (evt) {
     // console.log('Received Message: ', evt, evt.data);
 
-    const i = p.PushFrame.deserializeBinary(evt.data),
-      o = r.Response.deserializeBinary(
+    const i = proto.pushproto_PushFrame.deserializeBinary(evt.data),
+      o = proto.webcast_im_Response.deserializeBinary(
         (function (e) {
           for (const t of Object.values(e.getHeadersList())) {
             if ('compress_type' === t.getKey() && 'gzip' === t.getValue())
@@ -56,8 +53,8 @@ function App() {
           ? window.n.ec()(i.getPayload())
           : i.getPayload_asU8()
       );
-    if (o.getNeedAck()) {
-      let e = o.getInternalExt(),
+    if (o.getNeedack()) {
+      let e = o.getInternalext(),
         t = o.getCursor();
       (i.getHeadersList() || []).forEach((i) => {
         'im-internal_ext' === (null == i ? void 0 : i.getKey()) &&
@@ -68,8 +65,8 @@ function App() {
 
       this.internalExt = e;
       this.cursor = t;
-      const a = new p.PushFrame();
-      a.setPayloadType('ack');
+      const a = new proto.pushproto_PushFrame();
+      a.setPayloadtype('ack');
       a.setPayload(
         (function (e) {
           const t = [];
@@ -90,7 +87,7 @@ function App() {
       a.setLogid(i.getLogid());
       ws.send(a.serializeBinary());
     }
-    if ('msg' === i.getPayloadType()) {
+    if ('msg' === i.getPayloadtype()) {
       msg.emit(o);
     }
     // return t(new Error('close by payloadtype'));
