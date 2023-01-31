@@ -64,14 +64,13 @@ export default class msg {
     }
   }
   isCorrectEventName(e, t) {
-    return `webcast_im_Webcast${e}` === t || t === e;
+    return `Webcast${e}` === t || t === e;
   }
   runAllEvents(e, t) {
     // var a;
     for (const [o, i] of this.eventsMap.entries()) {
-
       const a = this.messageModules[o];
-      if (i && a && this.isCorrectEventName(o, e)) {
+      if (i && a && this.isCorrectEventName(o.split('_')[2], e)) {
         const r = t.getPayload_asU8();
         // console.log(new TextDecoder("utf-8").decode(r));
         const s = a.deserializeBinary(r);
