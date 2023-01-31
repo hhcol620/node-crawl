@@ -7,7 +7,7 @@ const traverse = require('@babel/traverse').default;
 const types = require('@babel/types');
 const generator = require('@babel/generator').default;
 //读取文件
-let encode_file = './proto2.js',
+let encode_file = './proto.js',
   decode_file = './new.proto';
 if (process.argv.length > 2) {
   encode_file = process.argv[2];
